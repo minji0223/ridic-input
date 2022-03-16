@@ -5,12 +5,100 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이름</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        .word{
+    font-size: 5vw;
+    width: 100vw;
+    line-height: 50vh;
+    text-align: center;
+    color: pink;
+  }
+  .red-ball{
+    background: black;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: fixed;
+  }
+  
+  
+  button {
+    display: flex; 
+    margin:auto;
+    margin-top: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    background: white;
+    border: 1px solid;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    text-align: center;
+    border: 1px solid darken(teal,5%);
+    
+  }
+  
+   #text {
+    font-size: 3vw;
+    width: 30%;
+    line-height: 30vh;
+    text-align: center;
+    vertical-align: middle;
+    color: black;
+    margin:0 auto 0;
+    border: 1px solid red;
+    border-radius: 10px 100px / 120px;
+  } 
+  
+  
+    </style>
 </head>
 <body>    
     <div class="word">Enter your CVV number <div>
     <div id="text">dddddd</div>
     <div class="red-ball"><div>
-    <script type="text/javascript" src="aaa.js"></script>
+    <script>
+        var redball = document.querySelector(".red-ball");
+        console.log(redball);
+
+        window.addEventListener("mousemove", event => {
+            
+            // Track the position of your mouse
+            var x = event.clientX;
+            var y = event.clientY;
+            //console.log(`${x} : ${y}`); 
+        
+            // Make redball follow your cursor
+            redball.style.top = y + "px";
+            redball.style.left = x + "px";
+            
+        });
+
+        var button = document.createElement("button");
+        button.innerHTML = "submit";
+
+        var body = document.getElementsByTagName("body")[0];
+        body.appendChild(button);
+
+        button.addEventListener ("click", function() {
+        alert("please try again");
+        });
+
+
+        function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+        }
+
+        var textBox = document.querySelector("#text");
+        textBox.addEventListener ("mouseenter", function() {
+        
+        var num;
+        num = String(getRandomInt(10));
+        num += String(getRandomInt(10));
+        num += String(getRandomInt(10));
+        
+        
+        textBox.innerText = num;
+        });
+    </script>
 </body>
 </html>
